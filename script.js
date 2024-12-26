@@ -4,5 +4,11 @@ function getComputerChoice(){
     return games[index]
       }
     
-console.log(getComputerChoice())
+// console.log(getComputerChoice())
+
+function getHumanChoice(){
+    let sign = prompt("What's your choice? rock, paper, scissor?");
+    console.log(sign)
+}
       
+getHumanChoice()
