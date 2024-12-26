@@ -3,9 +3,9 @@ let humanScore = 0
 let computerScore = 0
 
 function getComputerChoice(){
-    const games = ['rock','paper','scissor']
-    let index = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-    return games[index]
+    const choices = ['rock', 'paper', 'scissor'];
+    let index = Math.floor(Math.random() * choices.length);
+    return choices[index];
       }
     
 
@@ -14,11 +14,25 @@ function getHumanChoice(){
     return sign;
 }
 
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
+const humanSelection = getHumanChoice().toLowerCase()
+const computerSelection = getComputerChoice().toLowerCase()
       
 function playRound(humanChoice, computerChoice){
-    console.log(humanChoice, computerChoice)
+    if (humanChoice == computerChoice){
+        console.log('It is a tie')
+    }
+    else if (
+        (humanChoice === 'rock' && computerChoice === 'scissor') ||
+        (humanChoice === 'scissor' && computerChoice === 'paper') ||
+        (humanChoice === 'paper' && computerChoice === 'rock')
+    ){
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        humanScore = humanScore + 1
+    }
+    else{
+        console.log(`You lose ${computerChoice} beat ${humanChoice}`)
+        computerScore = computerScore + 1
+    }
 }
 
 
