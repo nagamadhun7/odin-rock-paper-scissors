@@ -14,8 +14,6 @@ function getHumanChoice(){
     return sign;
 }
 
-const humanSelection = getHumanChoice().toLowerCase()
-const computerSelection = getComputerChoice().toLowerCase()
       
 function playRound(humanChoice, computerChoice){
     if (humanChoice == computerChoice){
@@ -36,4 +34,21 @@ function playRound(humanChoice, computerChoice){
 }
 
 
-playRound(humanSelection, computerSelection)
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice().toLowerCase();
+        const computerSelection = getComputerChoice().toLowerCase();
+        playRound(humanSelection, computerSelection);
+        console.log(`Score: You - ${humanScore}, Computer - ${computerScore}`);
+    }
+    if (humanScore > computerScore) {
+        console.log(`You win the game! Final Score: You - ${humanScore}, Computer - ${computerScore}`);
+    } else if (computerScore > humanScore) {
+        console.log(`Computer wins the game! Final Score: Computer - ${computerScore}, You - ${humanScore}`);
+    } else {
+        console.log(`It's a tie! Final Score: You - ${humanScore}, Computer - ${computerScore}`);
+    }
+}
+
+playGame();
